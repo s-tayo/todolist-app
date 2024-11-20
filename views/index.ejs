@@ -1,0 +1,16 @@
+<form action="/add" method="POST" class="task-form">
+    <input type="text" name="task" placeholder="Enter a new task" required>
+    <button type="submit">Add Task</button>
+</form>
+
+<ul class="task-list">
+    <% tasks.forEach((task, index) => { %>
+        <li>
+            <span><%= task %></span>
+            <form action="/delete" method="POST" class="delete-form">
+                <input type="hidden" name="taskIndex" value="<%= index %>">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
